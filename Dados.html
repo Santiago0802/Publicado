@@ -1,0 +1,110 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sistemas Dinamicos y Simulacion</title>
+    <link rel="stylesheet" href="index.css">
+
+</head>
+
+ <head>
+     <title>Tira Dados</title>
+     <script >
+       function Daza()       
+         {   
+             var tirada; 
+             Vector=[1,1,1,1,1,1,1,1];
+             n= parseInt(document.datos.n.value)
+
+         for(i=0 ; i<n; i++)
+            {  
+               tirada1=Math.round(3*Math.random(1)+0.5); 
+               tirada2=Math.round(4*Math.random(1)+0.5); 
+               tirada=tirada1+tirada2; 
+               Vector[tirada]=Vector[tirada]+1 
+            }
+
+         for(i=2 ; i<8; i++)
+            {  
+            barra="";b=Math.round(100*Vector[i]/n);
+            for(j=0 ; j<b; j++) 
+             { 
+                 barra=barra+"-" 
+             }
+               document.datos[3*i-4].value=Vector[i]; 
+               document.datos[3*i-3].value=Vector[i]/n;
+               document.datos[3*i-2].value=barra                       
+             }
+              mostrar();
+           }
+      </script>
+  </head>
+  <body>
+    <form name="datos">
+  <label>Introduce el número de tiradas</label><BR><input type="text" id="Lanzar" name="n" required>
+  <input type="button" value="Lanza el dado!!" OnClick="Daza()"><HR>
+  
+  Frecuencia_1 =<input type="text"  size=3> Relatividad <input type="text" id="1"  size=3><input type="hidden" type="text" > <BR>
+  Frecuencia_2 =<input type="text"  size=3> Relatividad <input type="text" id="2"  size=3><input type="hidden" type="text" > <BR>
+  Frecuencia_3 =<input type="text"  size=3> Relatividad <input type="text" id="3"  size=3><input type="hidden" type="text" > <BR>
+  Frecuencia_4 =<input type="text"  size=3> Relatividad <input type="text" id="4"  size=3><input type="hidden" type="text" > <BR>
+  Frecuencia_5 =<input type="text"  size=3> Relatividad <input type="text" id="5"  size=3><input type="hidden" type="text" > <BR>
+  Frecuencia_6 =<input type="text"  size=3> Relatividad <input type="text" id="6"  size=3><input type="hidden" type="text" > <BR>
+      
+     
+    </form>
+    <canvas id="myChart" style="width: 10%"></canvas>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@2.9.3/dist/Chart.min.js"></script>
+    <script>
+        function mostrar()
+        {
+          var ctx = document.getElementById('myChart').getContext('2d');
+        
+        var myChart = new Chart(ctx, {
+            type: 'bar',
+            data: {
+                labels: ['1', '2', '3', '4', '5', '6'],   
+                datasets: [{
+                    label: 'Grafica',
+                    data :[document.getElementById('1').value, document.getElementById('2').value, document.getElementById('3').value, document.getElementById('4').value, document.getElementById('5').value, document.getElementById('6').value] ,                  
+                    backgroundColor: [
+                        'rgba(255, 99, 132, 0.2)',
+                        'rgba(54, 162, 235, 0.2)',
+                        'rgba(255, 206, 86, 0.2)',
+                        'rgba(75, 192, 192, 0.2)',
+                        'rgba(153, 102, 255, 0.2)',
+                        'rgba(255, 159, 64, 0.2)'
+                    ],
+                    borderColor: [
+                        'rgba(255, 99, 132, 1)',
+                        'rgba(54, 162, 235, 1)',
+                        'rgba(255, 206, 86, 1)',
+                        'rgba(75, 192, 192, 1)',
+                        'rgba(153, 102, 255, 1)',
+                        'rgba(255, 159, 64, 1)'
+                    ],
+                    borderWidth: 1
+                }]
+            },
+            options: {
+                scales: {
+                    yAxes: [{
+                        ticks: {
+                            beginAtZero: true
+                        }
+                    }]
+                }
+            }
+        });
+      }
+    </script>
+  </body>
+  <footer>
+      <div class="container">
+          <p>&copy; Simulacion 2022</p>
+      </div>
+  </footer>
+  </html>
