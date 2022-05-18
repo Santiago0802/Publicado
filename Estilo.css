@@ -185,3 +185,51 @@ footer .container {
         flex-direction: row;
         justify-content: space-between;
     }
+    header nav {
+        flex-direction: row;
+        padding-bottom: 0;
+        padding-right: 20px;
+    }
+
+    #figura .container {
+        display: flex;
+        justify-content: center;
+    }
+
+    #figura .texto {
+        width: 50%;
+        text-align: initial;
+        padding: 0px 30px;
+        display: flex;
+        justify-content: center;
+        flex-direction: column;
+    }
+
+    #figura .img-container {
+        background-image: url("media/Captura.JPG");
+        background-size: cover;
+        background-position: center center;
+        height: 500px;
+        width: 200px;
+    }
+
+    #definiciones .programas {
+        display: flex;
+        justify-content: center;
+        padding: 120px 150px;
+        margin: 0px;
+
+    }
+
+    #definiciones p {
+        display: block;
+    }
+
+    #definiciones h3 {
+        margin-top: 0;
+    }
+
+    #definiciones .carta {
+        padding: 50px;
+    }
+}
